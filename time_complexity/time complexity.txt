@@ -1,0 +1,65 @@
+TIME COMPLEXITY
+
+Time complexity describes the amount of time it takes to run an algorithm.
+
+Now lets find out the time complexity for a simple algorithm, that is, linear search.
+for(int i=0;i<n;i++)
+{
+
+    if(arr[i] ==ans && counter ==0)
+
+    counter = 1;
+
+}
+If we look for the worst case that the number we are looking for isn't present, then the 'for' loop will run 'n+1' times(one extra to check the condition), the 'if' statement will check the condition for 'n' times, and the 'counter statement will run only once when the condition is true(that is, the number is found).
+Lets suppose the for statement takes c1 time to run once then, and if statement takes c2 and the next statement takes c3 time. Then we will get the total time taken as,
+(n+1)c1+nc2+c3
+
+Now we write it in the polynomial form:
+n(c1+c2)+c1+c3
+And after we write the polynomial form the highest degree term we get after removing all the other constants is our time complexity.
+So, time complexity for this is 'n'.
+
+For the best case the time complexity will be 1
+and if the number is present in the middle of the array(that is, average case) then the time complexity will be n(not n/2 because we dont take the constant).
+For worst case: n
+
+Let's take another example:
+int a = 0;
+
+for (i = 0; i < N; i++) { 
+    
+    for (j = N; j > i; j--) { 
+        
+        a = a + i + j; 
+    
+    } 
+
+}
+
+Here the first 'for' loop will run for (N+1) times
+and the inner for loop will run for (N+1)(N+1) times [since for every outer loop the inner loop will run].
+and the statement will run N². And the equation will be written as:
+(N+1)c1+ (N+1)(N+1)c2+ N²c3
+=Nc1+c1+N²c2+2Nc2+c2+N²c3
+= N²(c2+c3)+N(c1+2c2+)+c1+c2
+
+The highest degree polynomial here is N².
+So, the time complexity is N².
+
+Example:
+int a = 0, i = N; 
+
+while (i > 0) { 
+ //takes c1 time for once   
+    a += i; // takes c2 time
+    
+    i /= 2; //takes c3 time
+}
+
+The 'while' loop will run for log(n+1) times and the second statement will run for log n times and the third statement will also run for log n times.
+So the equation is:
+(Log n+1)c1+ c2log n+c3log n
+=(c1+c2+c3)log n +c1
+Therefor the time complexity here is log n.
+
