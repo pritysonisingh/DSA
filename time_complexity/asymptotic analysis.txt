@@ -1,0 +1,50 @@
+The time complexity of a give algorithm in increasing order is:
+1, log n,n, nlogn, n², n³,2^n
+
+Asymptotic analysis means studying a graph's nature for very large numbers. Since in everyday life we deal with a huge amount of data, we always focus on the large number of data, to know the efficiency of our algorithm.
+
+Lets take an example:
+Our phone has a 1.7 giga hertz processor, which simply means that if we run a loop from 1 to 1.7*10¹² then it could do the work in just 1 sec.
+This is the reason we need to know the complexity of our algorithm. If we see things into a scale of a billion. An algorithm of O(n) runs in 1 sec whereas an O(2^n) algorithm runs in approximately 380 days.
+
+Notations in Asymptotic Analysis:
+ 
+There are mainly three notations:
+1. Upper Bound (Big-oh)
+2. Lower Bound (Omega)
+3. Tight Bound (Thetha)
+
+1. Upper Bound (Big-Oh):
+
+In the Big-oh notation we are always concerned about the upper bounds.
+For example: If we see 4n+6 here, the following functions can serve as upper bound for us: nlogn, n², n³,2^n and also 5n,6n,7n,...
+
+So we first consider the nearest upper bound element, in this case it is 5n and then we observe that the graph for 5n is always above 4n+6 but until one point. We get that point by equating the two equations. This point, that is, n=6 says that after this point 5n behaves as the upper bound for us.
+
+Now we represent this by:
+g(n)- it represents the element we choose to make the upper bound as
+c- the constant of g(n)
+n0- the point where the graph meets or the point after which the the chosen function starts behaving as upper bound.
+
+2. LOWER BOUND (Omega):
+
+In the lower bound notations we are concerned about the lower bounds.
+Now, lets look at the same function 4n+6:
+So the following lower bounds are available for it:
+3n, 2n, n logn, 1.
+Now if we take the closest one, that is, 3n
+then it gives us,
+g(n)- n 
+c- 3
+n0- -6
+which means after the point -6, 3n behaves as a lower bound for the function.
+
+3.Tight Bound(Thetha):
+
+In tight bound we need to choose such a g(n) from the same family, so that we can make both upper as well as lower bound just by changing the constants.
+This can be only acheived if for upper bound we take the f(n)'s family function and its upper bounds, and for lower bounds we take f(n)'s family function and lower bounds.
+Now if we consider the same example, 4n+6
+the family function for it will be n. So,
+g(n)-n
+and the constants c1- 3n and c2-5n
+
