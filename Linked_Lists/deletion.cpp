@@ -46,22 +46,39 @@ Node *Delete_from_end(Node *head){
 //Deletion of a node from a given position from the linked list
 Node *Delete_from_position(Node *head,int pos){
 	Node *temp=head,*prev,*temp1;
-	int i=1;
-	if(head==NULL)
+	int i=1,c=0;
+	if(head==NULL){
 		cout<<"The list is empty";
-	else{
-		if(pos==1){	
-			head=temp->next;
-			delete temp;
-		}
-		while(i<pos){
-			prev=temp;
-			temp=temp->next;
-			i++;
-		}
-			prev->next= temp->next;
-			delete temp;
-	}
 		return head;
+	}
+	//For counting the number of nodes in the list
+	for(temp=head;temp!=NULL;temp=temp->next)
+		c++;
+	if(pos>c){
+		cout<<"Position exceeded";
+		return head;
+	}
+	temp=head;
+	while(i<pos){
+		prev=temp;
+		temp=temp->next;
+		i++;
+	}
+	if(pos==1){	
+		temp=head;
+		head=temp->next;
+		delete temp;
+	}
+	else if(pos==c){
+		temp1=temp;
+		prev->next=NULL;
+		delete temp1;
+	}
+	else{
+		temp1=temp;
+		prev->next= temp->next;
+		delete temp1;
+	}
+	return head;
 }
 	
