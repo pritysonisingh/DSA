@@ -1,53 +1,47 @@
 #include<iostream>
-#include<stdlib.h>
 using namespace std;
 typedef struct Node{
-    int n;
+    int val;
     Node *next;
 }Node;
 
- Node *CreateNewNode(int n){
-    Node *newptr;
-    newptr= (Node*) malloc(sizeof(Node));
-    newptr->n=n;
+ Node *createNewNode(int val){
+    Node *newptr = new Node;
+    newptr->val=val;
     newptr->next= NULL;
     return newptr;
 }
 
-Node *Insert(Node *head, int n){
+Node *insert(Node *head, int val){
     Node *ptr,*temp=head;
-    ptr=CreateNewNode(n);
-    if(head==NULL)
-    {
+    ptr=createNewNode(val);
+    if(head==NULL){
         head=ptr;
         return head;
     }
     while(temp->next!=NULL)
-    temp=temp->next;
+    	temp=temp->next;
 
     temp->next=ptr;
     return head;
 }
 
-void Display(Node *head)
-{
-	while(head!=NULL)
-	{
-		cout<<head->n;
+void display(Node *head){
+	while(head!=NULL){
+		cout<<head->val<<" ";
 		head= head->next;
 	}
 }
 
 int main()
 {
-    int n,i,data;
-    Node *head;
+    int n,i,val;
+    Node *head = NULL;
     cin>>n;
     for(i=0;i<n;i++){
-    
-        cin>>data;
-        head= Insert(head,data);
+        cin>>val;
+        head= insert(head,val);
     }
-    Display(head);
+    display(head);
     return 0;
 }
